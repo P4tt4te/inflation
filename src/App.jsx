@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import Convert from './Convert'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -37,7 +38,9 @@ function App() {
             Vite Docs
           </a>
         </p>
+        <Convert />
       </header>
+      
     </div>
   )
 }
