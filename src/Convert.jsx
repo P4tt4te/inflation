@@ -39,6 +39,7 @@ class Convert extends React.Component {
     }
     
     handleSubmit(event) {
+        event.preventDefault();
         let somme = 0;
         let argent = this.state.money;
         let pays = this.datas[this.state.pays];
@@ -50,7 +51,6 @@ class Convert extends React.Component {
         argent = argent * (somme / 100 + 1);
         this.setState((state) => ({sub: true,moneyf: argent,infla: somme}));
         alert('Pays choisi : '+this.state.pays+' Argent mis : '+this.state.money+' Année : '+this.state.year);
-        event.preventDefault();
     }
 
     
