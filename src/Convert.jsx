@@ -6,7 +6,7 @@ class Convert extends React.Component {
         super(props);
         this.datas = null;
         this.name = "TEST";
-        this.state = {pays: '1',money: 0,year: 2010};
+        this.state = {pays: '1',money: 0,year: 2010,sub : false};
 
         this.handleChangePays = this.handleChangePays.bind(this);
         this.handleChangeMoney = this.handleChangeMoney.bind(this);
@@ -35,6 +35,8 @@ class Convert extends React.Component {
     }
     
     handleSubmit(event) {
+        this.setState((state) => ({sub: true}));
+        console.log(this.state.sub);
         alert('Pays choisi : '+this.state.pays+' Argent mis : '+this.state.money+' Année : '+this.state.year);
         event.preventDefault();
     }
@@ -56,10 +58,11 @@ class Convert extends React.Component {
             </label>
             <label>
             Année:
-            <input type="number" value={this.state.year} onChange={this.handleChangeYear} min="2010" max="2021" />        
+            <input type="number" value={this.state.year} onChange={this.handleChangeYear} min="2010" max="2020" />        
             </label>
             <input type="submit" value="Submit" />
         </form>
+        <div style={{ display: this.state.sub ? 'initial' : 'none'}}>2ème zone</div>
         </div>
     } 
 }
