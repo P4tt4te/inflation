@@ -57,7 +57,7 @@ class Convert extends React.Component {
     render() {
         return <div>
         <h1>{this.name}</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form className="bg-slate-100 max-w-2xl mx-auto" onSubmit={this.handleSubmit}>
             <label>Selection pays :
                 <select value={this.state.pays} onChange={this.handleChangePays}>
                     {this.datas.map((data, i) =>

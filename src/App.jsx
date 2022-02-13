@@ -6,11 +6,14 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="bg-sky-700">
-      <header className="App-header">
-        <Convert />
+    <div className="font-sans">
+      <header className="bg-blue-600 text-white">
+        <div className="text-3xl font-semibold">
+          <h1>Calcul inflation.</h1>
+        </div>
+          
       </header>
-      
+      <Convert />
     </div>
   )
 }
