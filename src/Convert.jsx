@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Listbox, Transition } from '@headlessui/react'
 import datafile from './data.json'
 
 class Convert extends React.Component {
@@ -58,12 +59,32 @@ class Convert extends React.Component {
         return <div>
         <h1>{this.name}</h1>
         <form className="bg-slate-100 max-w-2xl mx-auto" onSubmit={this.handleSubmit}>
-            <label>Selection pays :
-                <select value={this.state.pays} onChange={this.handleChangePays}>
+            
+            <Listbox value={this.state.pays} onChange={this.handleChangePays}>
+                <Listbox.Label>Selection pays :</Listbox.Label>
+                
+                <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
+                {this.datas[this.state.pays].TIME}
+                
+                </Listbox.Button>
+                <Transition
+                enter="transition duration-100 ease-out"
+                enterFrom="transform scale-95 opacity-0"
+                enterTo="transform scale-100 opacity-100"
+                leave="transition duration-75 ease-out"
+                leaveFrom="transform scale-100 opacity-100"
+                leaveTo="transform scale-95 opacity-0"
+                >
+                <Listbox.Options className="absolute max-w-2xl w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                     {this.datas.map((data, i) =>
-                    <option value={i}>{data.TIME}</option>)}
-                </select>
-            </label>
+                    <Listbox.Option value={i} className={({ active }) =>
+                    `${active ? 'text-sky-900 bg-sky-100' : 'text-gray-900'}
+                          cursor-default select-none relative py-2 pl-10 pr-4`
+                  }>{data.TIME}</Listbox.Option>)}
+                </Listbox.Options>
+                </Transition>
+            </Listbox>
+            
             <label>
             Argent:
             <input type="number" value={this.state.money} onChange={this.handleChangeMoney} />        
