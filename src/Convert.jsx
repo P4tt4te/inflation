@@ -50,7 +50,6 @@ class Convert extends React.Component {
         }
         argent = argent * (somme / 100 + 1);
         this.setState((state) => ({sub: true,moneyf: argent,infla: somme}));
-        alert('Pays choisi : '+this.state.pays+' Argent mis : '+this.state.money+' Année : '+this.state.year);
     }
 
     
