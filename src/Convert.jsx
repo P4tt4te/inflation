@@ -108,7 +108,7 @@ class Convert extends React.Component {
             </div>
             <input className="px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75" type="submit" value="Submit" />
         </form>
-        <div >
+        <div>
             <Transition
                 show={this.state.sub}
                 enter="transition duration-100 ease-out"
@@ -118,7 +118,7 @@ class Convert extends React.Component {
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
                 >
-                <Dialog className="mx-auto w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl" as="div" onClose={this.closemodal}>
+                <Dialog className="mx-auto w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle bg-white shadow-xl rounded-2xl" as="div" onClose={this.closemodal}>
                     <Dialog.Overlay />
 
                     <Dialog.Title as="h2" className="text-lg font-medium leading-6 text-gray-900">Résultat</Dialog.Title>
