@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Listbox, Transition } from '@headlessui/react'
+import { Listbox, Dialog, Transition } from '@headlessui/react'
 import datafile from './data.json'
 
 class Convert extends React.Component {
@@ -8,6 +8,7 @@ class Convert extends React.Component {
         this.datas = null;
         this.state = {pays: '1',money: 0,year: 2010,yearf: 2021,sub : false,moneyf : 0,infla : 0};
 
+        this.closemodal = this.closemodal.bind(this);
         this.handleChangePays = this.handleChangePays.bind(this);
         this.handleChangeMoney = this.handleChangeMoney.bind(this);
         this.handleChangeYear = this.handleChangeYear.bind(this);
@@ -23,6 +24,10 @@ class Convert extends React.Component {
 
     componentDidMount() {
     
+    }
+
+    closemodal() {
+        this.setState({sub: false});
     }
 
     handleChangePays(event) {    
@@ -103,10 +108,32 @@ class Convert extends React.Component {
             </div>
             <input className="px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75" type="submit" value="Submit" />
         </form>
-        <div style={{ display: this.state.sub ? 'initial' : 'none'}}>
-            <h2>Résultat</h2>
-            <span>Inflation cumulée : {this.state.infla} %</span>
-            <span>Argent final : {this.state.moneyf} €</span>
+        <div >
+            <Transition
+                show={this.state.sub}
+                enter="transition duration-100 ease-out"
+                enterFrom="transform scale-95 opacity-0"
+                enterTo="transform scale-100 opacity-100"
+                leave="transition duration-75 ease-out"
+                leaveFrom="transform scale-100 opacity-100"
+                leaveTo="transform scale-95 opacity-0"
+                >
+                <Dialog className="mx-auto w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl" as="div" onClose={this.closemodal}>
+                    <Dialog.Overlay />
+
+                    <Dialog.Title as="h2" className="text-lg font-medium leading-6 text-gray-900">Résultat</Dialog.Title>
+                    <Dialog.Description>
+                        This will permanently deactivate your account
+                    </Dialog.Description>
+
+                    <span>Inflation cumulée : {this.state.infla} %</span>
+                    <span>Argent final : {this.state.moneyf} €</span>
+
+                    <div className="mt-4">
+                        <button type="button" className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500" onClick={this.closemodal}>Fermer</button>
+                    </div>    
+                </Dialog>
+            </Transition>
         </div>
         </div>
     } 
