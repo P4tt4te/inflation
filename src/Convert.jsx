@@ -123,11 +123,11 @@ class Convert extends React.Component {
 
                     <Dialog.Title as="h2" className="text-lg font-medium leading-6 text-gray-900">Résultat</Dialog.Title>
                     <Dialog.Description>
-                        This will permanently deactivate your account
+                        Inflation cumulée : {this.state.infla} %
                     </Dialog.Description>
-
-                    <span>Inflation cumulée : {this.state.infla} %</span>
-                    <span>Argent final : {this.state.moneyf} €</span>
+                    <Dialog.Description>
+                        Argent final : {this.state.moneyf} €
+                    </Dialog.Description>
 
                     <div className="mt-4">
                         <button type="button" className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500" onClick={this.closemodal}>Fermer</button>
