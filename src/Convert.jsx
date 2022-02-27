@@ -91,7 +91,7 @@ class Convert extends React.Component {
             <div>
                 <label>
                 Argent:
-                <input className="w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-blue-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"  type="number" value={this.state.money} onChange={this.handleChangeMoney} />        
+                <input className="w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-blue-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"  type="number" value={this.state.money} min="0" onChange={this.handleChangeMoney} />        
                 </label>
             </div>
             <div>
